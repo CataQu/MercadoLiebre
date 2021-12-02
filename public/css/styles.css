@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fontawesome.com/icons?d=gallery&m=free');
+@import url('normalize.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto';
+}
+
+.main-header {
+    background-color: #EAC926;
+    padding: 20px;
+
+}
+
+.logo {
+    width: 50%;
+}
+
+.main-header-top {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+}
+
+.search-bar {
+    width: 50%;
+    height: 30px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.search-bar i {
+    padding-left: 10px;
+}
+
+.copy {
+    font-weight: 400;
+    text-align: center;
+    margin: auto;
+    font-size: 100%;
+    max-width: 400px;
+}
+
+.main-navbar ul {
+    list-style-type: none;
+    padding: 0%;
+    margin: 0%;
+    display: none;
+}
+
+.main-navbar a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    padding: 5px 0;
+    font-size: 17px;
+}
+
+.navbar-right a {
+    margin: 0 2px;
+}
+
+.burger-menu{
+    color: white;
+    background-color: #1259c3;
+    margin: auto;
+    border-radius: 5px;
+    font-size: 25px;
+    text-align: center;
+    width: 55px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.banner {
+    width: 100%;
+    margin: auto;
+}
+
+.main-main {
+    width: 90%;
+    margin: auto;
+    background-color: #ebebeb;
+    font-family: 'Roboto';
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+}
+
+.articulos {
+    margin: 0 0 15px 0;
+    width: 250px;
+    background-color: white;
+}
+
+.img-art {
+    width: 100%;
+    margin: auto;
+}
+
+.cuerpo-articulo {
+    margin: 0 10px 10px;
+    border-top: solid #ebebeb 1px;
+    padding: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative
+}
+
+.price-discount {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.shipping {
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    color: #39b54a;
+    border: solid #39b54a 1px;
+    border-radius: 50%;
+    background-color: #FFF;
+    right: 20px;
+    top: -15px;
+    position: absolute;
+}
+
+.description {
+    color: #666;
+    font-size: 16px;
+    font-weight: bold;
+    display: none;
+    padding: 15px 0;
+    margin-left: 0;
+}
+
+.titles {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.price {
+    font-size: 18px;
+    padding-right: 15px;
+}
+
+.discount-description {
+    font-size: 16px;
+    color: #39b54a;
+}
+
+
+
+.main-footer {
+    margin: auto;
+    text-align: center;
+    font-family: 'Roboto';
+}
+
+.footer-text {
+    margin: auto;
+    width: 90%;
+}
+.icono-footer {
+    margin-bottom: 10px;
+    color: #1259c3;;
+    width: 2rem;
+    margin: auto
+}
+
+
+
+@media (min-width: 361px){
+    .main-header-top {
+        display: flex;
+        justify-content: space-between;
+    }
+    .copy {
+        text-align: right;
+    }
+
+    .description {
+        display: block;
+    }
+
+    .articulos {
+        box-shadow: 0px 0px 10px rgb(100 100 100);
+        width: 40%;
+    }
+}
+
+@media (min-width: 769px){
+    .main-header-top {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        width: 30%;
+    }
+
+    .search-bar {
+        width: 30%;
+    }
+
+    .copy {
+        text-align: center;
+        margin: 0;
+    }
+
+    .main-navbar {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main-navbar ul {
+        display: flex;
+    }
+    
+    .main-navbar li {
+        margin: 0 5px;
+    }
+       
+    .burger-menu {
+        display: none
+    }
+
+    .articulos {
+        width: 20%;
+    }
+}
