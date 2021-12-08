@@ -16,7 +16,9 @@
     <!-- header -->
     <header class="main-header">
         <div class="main-header-top">
-            <img src="/img/logo-mercado-liebre.svg" class="logo">
+            <div class="logo-div">
+                <a href="/" ><img src="/img/logo-mercado-liebre.svg" class="logo"></a>
+            </div>
             <form action="search" method="get" class="search-bar-div">
                 <input type="text" id="searchbar" class="search-bar" placeholder="Buscar productos, marcas y más">
                 <label for="searchbar"><button type="submit" class="fas fa-search"></button></label>
@@ -53,11 +55,11 @@
     <form action="/registrarse" method="post" class="form">
         <div class="formulario">
             <!-- <label for="name" class = "labels">Nombre y apellido</label> -->
-            <input type="text" name="name" class="form-fields" id="name" placeholder="Nombre y apellido">
+            <input type="text" name="name" class="form-fields" id="name" minlength=5 placeholder="Nombre y apellido">
         </div>
         <div class="formulario">
             <!-- <label for="user" class = "labels">Nombre de usuario</label> -->
-            <input type="text" name="user" class="form-fields" id="user" placeholder="Nombre de usuario">
+            <input type="text" name="user" class="form-fields" id="user" minlength=5 placeholder="Nombre de usuario">
         </div>
         <div class="formulario">
             <!-- <label for="dob" class = "labels">Fecha de nacimiento</label> -->
@@ -65,15 +67,15 @@
         </div>
         <div class="formulario">
             <!-- <label for="address" class = "labels">Domicilio</label> -->
-            <input type="text" name="address" class="form-fields" id="address" placeholder="Domicilio">
+            <input type="text" name="address" class="form-fields" id="address" minlength=10 placeholder="Domicilio">
         </div>
         <div class="formulario">
             <!-- <label for="password" class = "labels">Contraseña</label> -->
-            <input type="password" name="password" id="password" class="form-fields" placeholder="Elegí una contraseña">
+            <input type="password" name="password" id="password" class="form-fields" minlength=8 placeholder="Elegí una contraseña">
         </div>
         <div class="formulario">
             <!-- <label for="password" class = "labels">Confirmar contraseña</label> -->
-            <input type="password" name="password" id="password" class="form-fields" placeholder="Confirma tu contraseña">
+            <input type="password" name="password" id="password" class="form-fields" minlength=8 placeholder="Confirma tu contraseña">
         </div>
         <div class="bottom-forms">
         <div class="formulario-p">

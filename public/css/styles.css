@@ -11,15 +11,25 @@
 body {
     font-family: 'Roboto';
 }
-
+/* =======HEADER======= */
 .main-header {
     background-color: #EAC926;
     padding: 20px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 210px;
+}
 
+.logo-div {
+    text-align: center;
 }
 
 .logo {
     width: 50%;
+    max-width: 200px;
+    min-width: 150px;
 }
 
 .main-header-top {
@@ -27,10 +37,6 @@ body {
         align-items: center;
         flex-wrap: wrap;
         justify-content: space-around;
-}
-
-.main-header-bottom {
-    margin-top: 50px;
 }
 
 .search-bar-div {
@@ -86,15 +92,19 @@ body {
     text-align: center;
     width: 55px;
     padding: 15px;
-    box-sizing: border-box;
-    display: block;
+    position: absolute;
+    bottom: 5%;
+    left: 42%;
 }
 
+/* ==== BANNER ===== */
 .banner {
     width: 100%;
     margin-bottom: -15px;
+    margin-top: 210px;
 }
 
+/* ============FORMULARIOS DE REGISTRO Y LOGIN============ */
 .form {
     display: flex;
     flex-wrap: wrap;
@@ -226,6 +236,7 @@ body {
     font-weight: bold;
 }
 
+/* ====================MAIN===================== */
 .main-main {
     width: 100%;
     margin: auto;
@@ -234,6 +245,7 @@ body {
     padding: 15px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .main-main h3 {
@@ -254,9 +266,34 @@ body {
 }
 
 .img-art {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.img-art img{
     width: 100%;
     margin: auto;
     max-width: 300px;
+}
+
+.nombre-art:hover {
+    opacity: 1;
+    transition: all 450ms;
+}
+
+.nombre-art {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    bottom: 0;
+    font-size: 25px;
+    text-align: center;
+    opacity: 0;
 }
 
 .cuerpo-articulo {
@@ -293,7 +330,6 @@ body {
 
 .description {
     color: #666;
-    font-size: 16px;
     font-weight: bold;
     display: none;
     padding: 15px 0;
@@ -316,7 +352,7 @@ body {
     color: #39b54a;
 }
 
-
+/* ================FOOTER=================== */
 
 .main-footer {
     display: flex;
@@ -343,15 +379,19 @@ body {
         color: #1259c3;
 }
 
-
+/* ==============MEDIA QUERIES================ */
 
 @media (min-width: 361px){
     .main-header-top {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     .copy {
         text-align: right;
+    }
+
+    .burger-menu {
+        left: 46%;
     }
 
     .description {
@@ -365,13 +405,22 @@ body {
 }
 
 @media (min-width: 769px){
+
+    .main-header {
+        height: 210px;
+    }
+
     .main-header-top {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
     }
 
-    .logo {
+    .main-header-bottom {
+        margin-top: 50px;
+    }
+
+    .logo-div {
         width: 30%;
     }
 
@@ -404,5 +453,10 @@ body {
     .articulos {
         width: 20%;
         max-height: 340px;
+    }
+
+    .main-footer {
+        flex-direction: row;
+        flex-wrap: nowrap;
     }
 }
