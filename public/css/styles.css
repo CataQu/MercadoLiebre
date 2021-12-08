@@ -113,6 +113,7 @@ body {
     max-width: 1100px;
     margin: auto;
     background-color: #ebebeb;
+    margin-top: 210px;
 }
 
 .formulario {
@@ -212,6 +213,7 @@ body {
     justify-content: center;
     align-content: center;
     flex-direction: column;
+    margin: 0 8px;
 }
 .send-button {
     background-color: #1259c3;
@@ -222,6 +224,11 @@ body {
     padding: 15px 0;
     border-radius: 15px;
     text-align: center;
+}
+
+.send-button:hover {
+    background-color: #0022AA;
+    transition: all 450ms;
 }
 
 .reset-button {
@@ -265,6 +272,11 @@ body {
     background-color: white;
 }
 
+.articulos:hover {
+    box-shadow: 0px 0px 10px rgb(100 100 100);
+    transition: all 450ms;
+}
+
 .img-art {
     position: relative;
     display: flex;
@@ -278,7 +290,7 @@ body {
     max-width: 300px;
 }
 
-.nombre-art:hover {
+/* .nombre-art:hover {
     opacity: 1;
     transition: all 450ms;
 }
@@ -294,7 +306,7 @@ body {
     font-size: 25px;
     text-align: center;
     opacity: 0;
-}
+} */
 
 .cuerpo-articulo {
     margin: 0 10px 10px;
@@ -328,12 +340,22 @@ body {
     position: absolute;
 }
 
+.shipping:hover {
+    transform: rotateZ(-90deg);
+    transition: all 1200ms;
+}
+
 .description {
     color: #666;
     font-weight: bold;
-    display: none;
-    padding: 15px 0;
+    opacity: 0;
     margin-left: 0;
+}
+
+.description:hover {
+    opacity: 1;
+    padding: 15px 0;
+    transition: all 450ms;
 }
 
 .titles {
@@ -373,11 +395,30 @@ body {
     align-content: space-around;
 }
 
+.footer-text h2 {
+    color: #666;
+    font-size: medium;
+    padding-top: 10px;
+    font-weight: bolder;
+}
+
+.footer-text p {
+    color: #9b9b9b;
+    font-size: small;
+}
+
 .icono-footer {
         font-size: 40px;
         margin: auto;
         color: #1259c3;
 }
+
+.icono-footer:hover {
+    color: #0022AA;
+    transition: all 450ms;
+}
+
+
 
 /* ==============MEDIA QUERIES================ */
 
@@ -454,9 +495,17 @@ body {
         width: 20%;
         max-height: 340px;
     }
-
     .main-footer {
+        flex-direction: column;
+    }
+
+    .footer-top {
+        display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+    }
+
+    .footer-copy {
+        max-width: 252px;
     }
 }
