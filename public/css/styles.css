@@ -11,6 +11,7 @@
 body {
     font-family: 'Roboto';
 }
+
 /* =======HEADER======= */
 .main-header {
     background-color: #EAC926;
@@ -33,10 +34,10 @@ body {
 }
 
 .main-header-top {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: space-around;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .search-bar-div {
@@ -83,7 +84,7 @@ body {
     margin: 0 2px;
 }
 
-.burger-menu{
+.burger-menu {
     color: white;
     background-color: #1259c3;
     margin: auto;
@@ -123,6 +124,7 @@ body {
     align-items: center;
     text-align: center;
 }
+
 .formulario-p {
     padding: 15px 10px;
     margin-bottom: -25px;
@@ -143,6 +145,7 @@ body {
     padding: 0 8px;
     justify-content: center;
 }
+
 .radio-buttons input {
     align-self: center;
 }
@@ -164,17 +167,13 @@ body {
     border-radius: 15px;
 }
 
-.labels {
-    padding: 5px 75px;
-}
-
 .checkbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin: auto;
     padding: 15px;
-    
+
 }
 
 .checkbox label {
@@ -215,6 +214,7 @@ body {
     flex-direction: column;
     margin: 0 8px;
 }
+
 .send-button {
     background-color: #1259c3;
     color: white;
@@ -228,6 +228,7 @@ body {
 
 .send-button:hover {
     background-color: #0022AA;
+    border: solid 2px white;
     transition: all 450ms;
 }
 
@@ -241,6 +242,12 @@ body {
     border-radius: 15px;
     text-align: center;
     font-weight: bold;
+}
+
+.reset-button:hover {
+    border: solid 2px #0022AA;
+    color: #0022AA;
+    transition: all 450ms;
 }
 
 /* ====================MAIN===================== */
@@ -272,11 +279,6 @@ body {
     background-color: white;
 }
 
-.articulos:hover {
-    box-shadow: 0px 0px 10px rgb(100 100 100);
-    transition: all 450ms;
-}
-
 .img-art {
     position: relative;
     display: flex;
@@ -284,29 +286,11 @@ body {
     align-content: center;
 }
 
-.img-art img{
+.img-art img {
     width: 100%;
     margin: auto;
     max-width: 300px;
 }
-
-/* .nombre-art:hover {
-    opacity: 1;
-    transition: all 450ms;
-}
-
-.nombre-art {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    bottom: 0;
-    font-size: 25px;
-    text-align: center;
-    opacity: 0;
-} */
 
 .cuerpo-articulo {
     margin: 0 10px 10px;
@@ -340,22 +324,11 @@ body {
     position: absolute;
 }
 
-.shipping:hover {
-    transform: rotateZ(-90deg);
-    transition: all 1200ms;
-}
-
 .description {
     color: #666;
     font-weight: bold;
     opacity: 0;
     margin-left: 0;
-}
-
-.description:hover {
-    opacity: 1;
-    padding: 15px 0;
-    transition: all 450ms;
 }
 
 .titles {
@@ -408,9 +381,9 @@ body {
 }
 
 .icono-footer {
-        font-size: 40px;
-        margin: auto;
-        color: #1259c3;
+    font-size: 40px;
+    margin: auto;
+    color: #1259c3;
 }
 
 .icono-footer:hover {
@@ -422,11 +395,12 @@ body {
 
 /* ==============MEDIA QUERIES================ */
 
-@media (min-width: 361px){
+@media (min-width: 361px) {
     .main-header-top {
         display: flex;
         justify-content: space-around;
     }
+
     .copy {
         text-align: right;
     }
@@ -439,13 +413,13 @@ body {
         display: block;
     }
 
-    .articulos {
+    .articulos:hover {
         box-shadow: 0px 0px 10px rgb(100 100 100);
-        width: 40%;
+        transition: all 450ms;
     }
 }
 
-@media (min-width: 769px){
+@media (min-width: 769px) {
 
     .main-header {
         height: 210px;
@@ -461,11 +435,7 @@ body {
         margin-top: 50px;
     }
 
-    .logo-div {
-        width: 30%;
-    }
-
-    .search-bar-div {
+    .logo-div, .search-bar-div {
         width: 30%;
     }
 
@@ -477,16 +447,17 @@ body {
     .main-navbar {
         display: flex;
         justify-content: space-between;
+        margin: 0 50px;
     }
 
     .main-navbar ul {
         display: flex;
     }
-    
+
     .main-navbar li {
         margin: 0 5px;
     }
-       
+
     .burger-menu {
         display: none
     }
@@ -495,6 +466,18 @@ body {
         width: 20%;
         max-height: 340px;
     }
+
+    .articulos:hover .description {
+        opacity: 1;
+        padding: 15px 0;
+        transition: all 450ms;
+    }
+
+    .articulos:hover .shipping{
+        transform: rotateZ(-90deg);
+        transition: all 1200ms;
+    }
+
     .main-footer {
         flex-direction: column;
     }
@@ -503,6 +486,7 @@ body {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        align-items: flex-start;
     }
 
     .footer-copy {
