@@ -447,11 +447,13 @@ body {
     .main-navbar {
         display: flex;
         justify-content: space-between;
-        margin: 0 50px;
+        margin: 0 25px;
+        transition: all 450ms;
     }
 
     .main-navbar ul {
         display: flex;
+        transition: all 450ms;
     }
 
     .main-navbar li {
