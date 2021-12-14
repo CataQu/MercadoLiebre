@@ -381,13 +381,13 @@ body {
 }
 
 .icono-footer {
-    font-size: 40px;
+    font-size: 2em;
     margin: auto;
     color: #1259c3;
 }
 
 .icono-footer:hover {
-    color: #0022AA;
+    color: #39b54a;
     transition: all 450ms;
 }
 
