@@ -17,20 +17,21 @@
         <div class="main-section">
             <h3 class="titles"> Basado en tu última visita</h3>
             <section class="section">
-                <% for (let i = 0; i < productos.length; i++){ %> 
+                <% for (let i = 0; i < productsArray.length; i++){ %> 
                     <article class="articulos">
+                        <a href="/products/detail/<%=productsArray[i].id%>">
                         <div class="img-art">
-                            <img src=<%= productos[i].img %> name=<%= productos[i].name %>>
+                            <img src=<%= productsArray[i].img %> name=<%= productsArray[i].name %>>
                         </div>
                         <div class="cuerpo-articulo">
                             <div class="price-discount">
-                                <p class="price"><%= productos[i].price %> </p>
-                                <p class='discount-description'><%= productos[i].discount %></p>
+                                <p class="price"><%= productsArray[i].price %> </p>
+                                <p class='discount-description'><%= productsArray[i].discount %></p>
                                 <div class="shipping"><i class="fas fa-truck"></i>
                                 </div>
                             </div>
-                            <h5 class='description'> <%= productos[i].description %></h5>
-                        </div>
+                            <h5 class='description'> <%= productsArray[i].description %></h5>
+                        </div></a>
                     </article>
                     <% } %> 
             </section> 
@@ -38,19 +39,19 @@
         <div class="main-section">
             <h3 class="titles"> Ofertas</h3>
             <section class="section">
-            <% for (let i = 0; i < productos.length; i++){ %> 
+            <% for (let i = 0; i < productsArray.length; i++){ %> 
                 <article class="articulos">
                     <div class="img-art">
-                        <img src=<%= productos[i].img %> name=<%= productos[i].name %>>
+                        <img src=<%= productsArray[i].img %> name=<%= productsArray[i].name %>>
                     </div>
                     <div class="cuerpo-articulo">
                         <div class="price-discount">
-                            <p class="price"><%= productos[i].price %> </p>
-                            <p class='discount-description'><%= productos[i].discount %></p>
+                            <p class="price"><%= productsArray[i].price %> </p>
+                            <p class='discount-description'><%= productsArray[i].discount %></p>
                             <div class="shipping"><i class="fas fa-truck"></i>
                             </div>
                         </div>
-                        <h5 class='description'> <%= productos[i].description %></h5>
+                        <h5 class='description'> <%= productsArray[i].description %></h5>
                     </div>
                 </article>
                 <% } %> 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- head -->
+    <%- include('../partials/head') %>
+<!-- Body -->
+
+<body>
+    <!-- header -->
+    <%- include('../partials/header') %>
+    <form action="/products?_method=put" method="post" enctype="multipart/form-data" class="form">
+        <div class="formulario">
+            <!-- <label for="name" class = "labels">Nombre y apellido</label> -->
+            <input type="text" name="name" class="form-fields" id="name" value="<%= oneProduct.name %> " required>
+        </div>
+        <div class="formulario">
+            <!-- <label for="img" class = "labels">Imagen del producto</label> -->
+            <input type="file" name="img" class="form-fields" placeholder="Imagen del producto"required>
+        </div>
+        <div class="formulario">
+            <!-- <label for="dob" class = "labels">Fecha de nacimiento</label> -->
+            <input type="text" name="description" class="form-fields" value="<%= oneProduct.description %> " required>
+        </div>
+        <div class="formulario">
+            <!-- <label for="address" class = "labels">Domicilio</label> -->
+            <input type="number" name="price" class="form-fields" value="$<%= oneProduct.price %> " required>
+        </div>
+        <div class="formulario">
+            <!-- <label for="address" class = "labels">Domicilio</label> -->
+            <input type="number" name="discount" class="form-fields" value="<%= oneProduct.discount %>% " required>
+        </div>
+        </div>
+        <div class="botones">
+            <button type="submit" class="send-button">Editar producto</button>
+            <button type="reset" class="reset-button">Reset</button>
+        </div>
+    </form>
+    <!-- footer -->
+<%- include('../partials/footer') %>
+</body>
+
+</html>
