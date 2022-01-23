@@ -12,7 +12,7 @@ const usersArray = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const controller = {
     register: (req, res) => {
-        res.render('./users/register')
+        res.render('./users/register', {loggedUser: req.session.loggedUser})
     },
     postRegister: (req, res) => {
         var resultValidation = validationResult(req)
@@ -47,7 +47,8 @@ const controller = {
     },
 
     login: (req, res) => {
-        res.render('./users/login.ejs')
+        res.render('./users/login.ejs', 
+       { loggedUser: req.session.loggedUser})
     },
     processLogin: (req, res) => {
         let userLogging = User.findByEmail(req.body.email)

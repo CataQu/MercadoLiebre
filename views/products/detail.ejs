@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- head -->
-    <%- include('../partials/head') %>
+<%- include('../partials/head') %>
 <!-- Body -->
 
 <body>
@@ -10,49 +10,30 @@
     <main>
         <!-- Product Detail-->
         <section class="product-section">
-            <!-- <%# let id = id %>  -->
-            <%# if (id <= oneProduct.length) { %>
             <article class="product-article">
                 <div class="product-image">
-                    <img src= <%= oneProduct.img %> alt="Product">
+                    <img src=<%= oneProduct.img %> alt="Product">
                 </div>
                 <div class="product-detail-total">
                     <div class="product-detail">
                         <h2 class="title-product">
-                            <%= oneProduct.name%> </h2>
+                            <%= oneProduct.name%> 
+                            <span><a href="/delete">delete</p></span></h2>
+                            
                         <p class="product-price">
-                            <%= oneProduct.price %>  </p>
+                            <%= oneProduct.price %> </p>
 
                     </div>
                     <div class="description-product">
                         <p><%= oneProduct.description %> </p>
                     </div>
-                    <%#} else { %>
-                    <!-- <p>No existe el producto <%# id %>  </p> -->
-                    <%# } %>
-               
-</form>
-<div>
-   <form class="form-shopping" action="/list?_method=DELETE" method="post">
-       
-       </div>
-       <div class="cart-button"></div>
-       <input type="submit" value="DELETE" class="add-to-cart">
-</div>
-
-</form>
-                            <div class="cart-button"></div>
-                            <input type="submit" value="Add to Cart" class="add-to-cart">
-                    </div>
-
-                    </form>
-                </div>
+                    <input type="submit" value="Add to Cart" class="add-to-cart">
                 </div>
             </article>
-            
+
         </section>
-    <!-- footer -->
-<%- include('../partials/footer') %>
+        <!-- footer -->
+        <%- include('../partials/footer') %>
 </body>
 
 </html>

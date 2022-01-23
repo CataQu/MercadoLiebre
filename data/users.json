@@ -29,5 +29,13 @@
   "email": "prueba@prueba4.com",
   "password": "$2a$10$fG2fAUSlIHMf7zt/7WgGo.VvQPMkX6OtQ.duDz1bFwCM3EuW8NyLS",
   "avatar": "img/avatar/avatar-1642969239185.jpg"
+ },
+ {
+  "id": 5,
+  "name": "Catalina Quarleri",
+  "user": "cataqu",
+  "email": "cataquarleri@gmail.com",
+  "password": "$2a$10$wn1z3QVr/yFxT.MrG0ibyOOyzEkZgZairuOU3yk.8pt3QRGyziMVG",
+  "avatar": "img/avatar/avatar-1642977638447.jpg"
  }
 ]

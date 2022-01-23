@@ -20,7 +20,6 @@ a {
 .main-header {
     background-color: #EAC926;
     padding: 20px;
-    position: fixed;
     top: 0;
     z-index: 100;
     width: 100%;
@@ -349,6 +348,30 @@ a {
 .discount-description {
     font-size: 16px;
     color: #39b54a;
+}
+
+/* ================PRODUCT DETAILS=================== */
+.product-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black
+}
+
+.product-article {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.product-image img {
+    width: 300px
+}
+
+.product-detail-total {
+    display: flex;
+    flex-direction: column;
+
 }
 
 /* ================FOOTER=================== */

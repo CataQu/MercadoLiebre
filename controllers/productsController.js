@@ -8,14 +8,16 @@ const controller = {
     list: function (req, res) {
         // res.send('este es el list')
         res.render('products/list', {
-            productsArray: productsArray})
+            productsArray: productsArray,
+            loggedUser: req.session.loggedUser})
     },
     detail: function (req, res) {
         const id = Number(req.params.id);
         const oneProduct = productsArray.find(oneProduct => oneProduct.id === id);
         res.render('products/detail', { 
             id: id,
-            oneProduct: oneProduct
+            oneProduct: oneProduct,
+            loggedUser: req.session.loggedUser
         })
     },
     create: function (req, res) {
@@ -56,7 +58,8 @@ const controller = {
         const oneProduct = productsArray.find(oneProduct => oneProduct.id === id);
         res.render('products/edit', { 
             id: id,
-            oneProduct: oneProduct
+            oneProduct: oneProduct,
+            loggedUser: req.session.loggedUser
         })
     },
     put: function (req, res) {
