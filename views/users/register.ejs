@@ -8,42 +8,64 @@
     <!-- header -->
     <%- include('../partials/header') %>
     <!-- Registro -->
-    <form action="/register" method="post" class="form" enctype="multipart/form-data">
+    <form action="/user" method="post" class="form" enctype="multipart/form-data">
         <div class="formulario">
             <!-- <label for="name" class = "labels">Nombre y apellido</label> -->
-            <input type="text" name="name" class="form-fields" id="name" minlength=5 placeholder="Nombre y apellido">
-            <div class="formulario">
-                <p><%= locals.errors && errors.name ? errors.msg : null %> </p>
-            </div>
+            <input 
+            type="text" 
+            name="name" 
+            class="form-fields"
+            <% if (locals.oldData && oldData.name ) { %>
+             value="<%=   locals.oldData.name  %>"
+             <% } else { %>
+                placeholder="Nombre y apellido"
+            <% } %>
+            >
+                <p style="color: red"><%= locals.errors && errors.name ? errors.name.msg : null %> </p>
         </div>
         <div class="formulario">
             <!-- <label for="user" class = "labels">Nombre de usuario</label> -->
-            <input type="text" name="user" class="form-fields" id="user" minlength=5 placeholder="Nombre de usuario" >
+            <input type="text" name="user" class="form-fields" 
+            <% if (locals.oldData && oldData.user ) { %>
+            value="<%=   locals.oldData.user  %>"
+            <% } else { %>
+               placeholder="Nombre de usuario"
+           <% } %>>
+            <p style="color: red"><%= locals.errors && errors.user ? errors.user.msg : null %> </p>
         </div>
-        <div class="formulario">
-            <!-- <label for="dob" class = "labels">Fecha de nacimiento</label> -->
+        <!-- <div class="formulario">
+            <label for="dob" class = "labels">Fecha de nacimiento</label>
             <input type="date" name="dob" class="form-fields" id="dob">
+            <p style="color: red"><%#= locals.errors && errors.dob ? errors.dob.msg : null %> </p>
         </div>
         <div class="formulario">
-            <!-- <label for="address" class = "labels">Domicilio</label> -->
+            <label for="address" class = "labels">Domicilio</label>
             <input type="text" name="address" class="form-fields" id="address" minlength=10 placeholder="Domicilio" >
-        </div>
+            <p style="color: red"><%#= locals.errors && errors.address ? errors.address.msg : null %> </p>
+        </div> -->
         <div class="formulario">
             <!-- <label for="password" class = "labels">Contraseña</label> -->
-            <input type="email" name="email" id="email" class="form-fields"
-                placeholder="Ingresa tu email" >
+            <input type="email" name="email" 
+            class="form-fields"
+            <% if (locals.oldData && oldData.email ) { %>
+                value="<%=   locals.oldData.email  %>"
+                <% } else { %>
+                   placeholder="Ingresa tu email"
+               <% } %>> 
+                <p style="color: red"><%= locals.errors && errors.email ? errors.email.msg : null %> </p>
         </div>
         <div class="formulario">
             <!-- <label for="password" class = "labels">Contraseña</label> -->
             <input type="password" name="password" id="password" class="form-fields"
                 placeholder="Elegí una contraseña" >
+                <p style="color: red"><%= locals.errors && errors.password ? errors.password.msg : null %> </p>
         </div>
         <!-- <div class="formulario">
             label for="password" class = "labels">Confirmar contraseña</label> 
             <input type="password" name="repeatPassword" id="password" class="form-fields" minlength=8
                 placeholder="Confirmá tu contraseña">
         </div> -->
-        <div class="bottom-forms">
+        <!-- <div class="bottom-forms">
             <div class="formulario-p">
                 <p>Qué te gustaría hacer en MercadoLiebre?</p>
                 <div class="perfil">
@@ -53,6 +75,7 @@
                         <input type="radio" name="perfil" id="vender" value="vender">
                         <label for="vender">Vender</label>
                     </div>
+                    <p style="color: red"><%#= locals.errors && errors.perfil ? errors.perfil.msg : null %> </p>
                 </div>
             </div>
             <div class="formulario-p">
@@ -70,8 +93,9 @@
                         <div><input type="checkbox" name="categories" id="sana" value="sana">
                             <label for="sana">Vida Sana</label></div>
                     </div>
+                    <p style="color: red"><%#= locals.errors && errors.categories ? errors.categories.msg : null %> </p>
                 </div>
-            </div>
+            </div> -->
             <div class="formulario">
                 <label for="avatar">Subí tu foto de perfil</label>
                 <div class="perfil">
@@ -79,6 +103,7 @@
                         <input type="file" name="avatar" id="avatar" class="profile-button">
                     </div>
                 </div>
+                <p style="color: red"><%= locals.errors && errors.avatar ? errors.avatar.msg : null %> </p>
             </div>
         </div>
         <div class="botones">

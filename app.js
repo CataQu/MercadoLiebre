@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
+const session = require('express-session');
 const app = express();
 
 // Configuración
@@ -11,6 +12,7 @@ app.use(methodOverride('_method'));
 // Setup para el req.body
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(session({secret: 'secreto', resave: false, saveUninitialized: false}));
 
 // Rutas
 const mainRouter = require('./routes/mainRouter.js');

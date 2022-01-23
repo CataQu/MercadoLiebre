@@ -1,5 +1,33 @@
 [
-    {
-        "name": "Cata"
-    }
+ {
+  "id": 1,
+  "name": "Prueba 1",
+  "user": "userPrueba",
+  "email": "prueba@prueba1.com",
+  "password": "123!@#asdASD"
+ },
+ {
+  "id": 2,
+  "name": "Prueba 2",
+  "user": "usuarioDePrueba2",
+  "email": "prueba2@usuario.com",
+  "password": "123!@#asdASD",
+  "avatar": "img/avatar/avatar-1642883114747.jpg"
+ },
+ {
+  "id": 3,
+  "name": "Prueba 3",
+  "user": "prueba3",
+  "email": "cata@cata.com",
+  "password": "$2a$10$.XY2ju9xBfVrBa/332cRfuWjQa1dFQeSSRgDeydYgW6vWOj6r0PHO",
+  "avatar": "img/avatar/avatar-1642884421387.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Cuenta de Prueba",
+  "user": "prueba4",
+  "email": "prueba@prueba4.com",
+  "password": "$2a$10$fG2fAUSlIHMf7zt/7WgGo.VvQPMkX6OtQ.duDz1bFwCM3EuW8NyLS",
+  "avatar": "img/avatar/avatar-1642969239185.jpg"
+ }
 ]

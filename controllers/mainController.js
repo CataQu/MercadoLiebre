@@ -5,10 +5,12 @@ const productsArray = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../dat
 
 const controlador = {
     home: (req, res) =>{
+        let loggedUser = req.session
         const id = req.params.id;
         res.render('home.ejs', {
             id: id,
-            productsArray: productsArray
+            productsArray: productsArray,
+            loggedUser: req.session.loggedUser
         });
     }
 }

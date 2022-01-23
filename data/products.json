@@ -30,21 +30,5 @@
   "description": "SmartTV Samsung 43\"",
   "discount": "5% off",
   "price": "$23.200"
- },
- {
-  "id": 5,
-  "name": "asdfasdf",
-  "img": "img/1642021606599.png",
-  "description": "asdfasdf",
-  "discount": "12",
-  "price": "123"
- },
- {
-  "id": 6,
-  "name": "afdasfasdfasdf",
-  "img": "img/1642195369871.jpg",
-  "description": "asdfasdf",
-  "discount": "12",
-  "price": "123"
  }
 ]

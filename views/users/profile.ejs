@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- head -->
+<%- include('../partials/head') %>
+<!-- Body -->
+
+<body>
+    <!-- header -->
+    <%- include('../partials/header') %>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h1>Bienvenido usuario: <%= locals.loggedUser?.name ? loggedUser.name : 'invitado' %> </h1>
+    <!-- footer -->
+<%- include('../partials/footer') %>
+</body>
+
+</html>
