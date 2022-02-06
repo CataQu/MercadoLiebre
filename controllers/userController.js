@@ -5,6 +5,7 @@ const {
 } = require('express-validator');
 const User = require('../models/Users');
 const bcryptjs = require('bcryptjs');
+const { clearCookie } = require('express/lib/response');
 
 const usersFilePath = path.resolve(__dirname, '../data/users.json');
 const usersArray = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -39,7 +40,7 @@ const controller = {
         let userToCreate = {
             ...req.body,
             password: bcryptjs.hashSync(req.body.password, 10),
-            avatar: 'img/avatar/' + req.file.filename
+            avatar: '/img/avatar/' + req.file.filename
         }
 
         User.create(userToCreate)
@@ -57,7 +58,7 @@ const controller = {
           if (bcryptjs.compareSync(req.body.password, userLogging.password)){
               req.session.loggedUser = userLogging;
               if (req.body.rememberUser){
-                res.cookie('userEmail', req.body.email, {maxAge: 1000 * 60})
+                res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60})
             }
              return  res.redirect('/user/profile')
           } return res.send('las credenciales son invalidas')
@@ -70,7 +71,11 @@ const controller = {
         res.render('./users/profile', {
             loggedUser: req.session.loggedUser
         })
-        console.log(req.session)
+    },
+    logout: (req, res) => {
+        res.clearCookie('userEmail');
+        req.session.destroy;
+        return res.redirect('/')
     }
 }
 

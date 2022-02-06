@@ -373,7 +373,31 @@ a {
     flex-direction: column;
 
 }
+/* ================USER PROFILE=================== */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border: solid 2px #0022AA;
+    border-radius: 5px;
+    max-width: 500px;
+    padding-bottom: 20px;
+}
 
+.container h1 {
+    text-align: center;
+    font-weight: 900;
+}
+.avatar-div{
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-div img {
+    max-width: 95%;
+    justify-self: center;
+}
 /* ================FOOTER=================== */
 
 .main-footer {

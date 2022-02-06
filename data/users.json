@@ -8,34 +8,10 @@
  },
  {
   "id": 2,
-  "name": "Prueba 2",
-  "user": "usuarioDePrueba2",
-  "email": "prueba2@usuario.com",
-  "password": "123!@#asdASD",
-  "avatar": "img/avatar/avatar-1642883114747.jpg"
- },
- {
-  "id": 3,
-  "name": "Prueba 3",
-  "user": "prueba3",
-  "email": "cata@cata.com",
-  "password": "$2a$10$.XY2ju9xBfVrBa/332cRfuWjQa1dFQeSSRgDeydYgW6vWOj6r0PHO",
-  "avatar": "img/avatar/avatar-1642884421387.jpg"
- },
- {
-  "id": 4,
-  "name": "Cuenta de Prueba",
-  "user": "prueba4",
-  "email": "prueba@prueba4.com",
-  "password": "$2a$10$fG2fAUSlIHMf7zt/7WgGo.VvQPMkX6OtQ.duDz1bFwCM3EuW8NyLS",
-  "avatar": "img/avatar/avatar-1642969239185.jpg"
- },
- {
-  "id": 5,
-  "name": "Catalina Quarleri",
-  "user": "cataqu",
-  "email": "cataquarleri@gmail.com",
-  "password": "$2a$10$wn1z3QVr/yFxT.MrG0ibyOOyzEkZgZairuOU3yk.8pt3QRGyziMVG",
-  "avatar": "img/avatar/avatar-1642977638447.jpg"
+  "name": "Goku",
+  "user": "Goku",
+  "email": "goku@dbz.com",
+  "password": "$2a$10$JdyfZnL.pvGptWFH3xMLIeWtp6.7TUE4kbwXz/d8qp4st1fDAx7FW",
+  "avatar": "/img/avatar/avatar-1644102077109.jpeg"
  }
 ]

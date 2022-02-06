@@ -7,8 +7,17 @@
 <body>
     <!-- header -->
     <%- include('../partials/header') %>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <h1>Bienvenido usuario: <%= locals.loggedUser?.name ? loggedUser.name : 'invitado' %> </h1>
+    <main class="main-main">
+
+        <div class="container">
+            <h1>Mi cuenta </h1>
+                <h2> <%= locals.loggedUser?.name ? loggedUser.name : 'invitado' %> </h2>
+                <div class="avatar-div">
+                    <img src="<%= locals.loggedUser.avatar %> " alt="">
+                </div>
+                <a href="/user/logout"><button class="reset-button">Logout</button></a>
+        </div>
+    </main>
     <!-- footer -->
 <%- include('../partials/footer') %>
 </body>
