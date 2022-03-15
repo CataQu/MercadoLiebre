@@ -7,14 +7,14 @@
 <body>
     <!-- header -->
     <%- include('../partials/header') %>
-    <form action="/products?_method=put" method="post" enctype="multipart/form-data" class="form">
+    <form action="/products/edit/<%=oneProduct.productId%>?_method=put" method="post" enctype="multipart/form-data" class="form">
         <div class="formulario">
             <!-- <label for="name" class = "labels">Nombre y apellido</label> -->
-            <input type="text" name="name" class="form-fields" id="name" value="<%= oneProduct.name %> " required>
+            <input type="text" name="title" class="form-fields" id="name" value="<%= oneProduct.title %> " required>
         </div>
         <div class="formulario">
             <!-- <label for="img" class = "labels">Imagen del producto</label> -->
-            <input type="file" name="img" class="form-fields" placeholder="Imagen del producto"required>
+            <input type="file" name="image" class="form-fields" placeholder="Imagen del producto"required>
         </div>
         <div class="formulario">
             <!-- <label for="dob" class = "labels">Fecha de nacimiento</label> -->
@@ -22,11 +22,31 @@
         </div>
         <div class="formulario">
             <!-- <label for="address" class = "labels">Domicilio</label> -->
-            <input type="number" name="price" class="form-fields" value="$<%= oneProduct.price %> " required>
+            <input type="number" name="price" class="form-fields" value="<%= oneProduct.price %>" required>
         </div>
         <div class="formulario">
             <!-- <label for="address" class = "labels">Domicilio</label> -->
-            <input type="number" name="discount" class="form-fields" value="<%= oneProduct.discount %>% " required>
+            <input type="number" name="discount" class="form-fields" value="<%= oneProduct.discount %>" required>
+        </div>
+        <div class="formulario">
+            <!-- <label for="address" class = "labels">Domicilio</label> -->
+            <input type="number" name="stock" class="form-fields" value="<%= oneProduct.discount %>" required>
+        </div>
+        <div class="formulario">
+            <select name="brands" class="form-fields">
+                <% for( let i = 0; i < brands.length; i++ ) { %>
+                    <option value="<%=brands[i].id%>"><%=brands[i].brand%></option>
+                <% } %>
+
+            </select>
+        </div>
+        <div class="formulario">
+            <select name="categories" class="form-fields">
+                <% for( let i = 0; i < categories.length; i++ ) { %>
+                    <option value="<%=categories[i].id%>"><%=categories[i].name%></option>
+                <% } %>
+
+            </select>
         </div>
         </div>
         <div class="botones">

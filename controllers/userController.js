@@ -3,19 +3,19 @@ const fs = require('fs');
 const {
     validationResult
 } = require('express-validator');
-const User = require('../models/Users');
+const {
+    User
+} = require('../database/models')
 const bcryptjs = require('bcryptjs');
-const { clearCookie } = require('express/lib/response');
-
-const usersFilePath = path.resolve(__dirname, '../data/users.json');
-const usersArray = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 
 const controller = {
     register: (req, res) => {
-        res.render('./users/register', {loggedUser: req.session.loggedUser})
+        res.render('./users/register', {
+            loggedUser: req.session.loggedUser
+        })
     },
-    postRegister: (req, res) => {
+    postRegister: async (req, res) => {
         var resultValidation = validationResult(req)
 
         if (resultValidation.errors.length > 0) {
@@ -24,7 +24,11 @@ const controller = {
                 oldData: req.body
             })
         };
-        let isUserInDB = User.findByEmail(req.body.email);
+        let isUserInDB = await User.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
 
         if (isUserInDB) {
             return res.render('./users/register', {
@@ -40,31 +44,45 @@ const controller = {
         let userToCreate = {
             ...req.body,
             password: bcryptjs.hashSync(req.body.password, 10),
-            avatar: '/img/avatar/' + req.file.filename
+            avatar: req.file.filename
         }
+        try {
+            await User.create(userToCreate)
+            return res.redirect('/user/login')
 
-        User.create(userToCreate)
-        return res.redirect('/user/login')
+        } catch (error) {
+            console.log(error)
+        }
     },
 
     login: (req, res) => {
-        res.render('./users/login.ejs', 
-       { loggedUser: req.session.loggedUser})
+        res.render('./users/login.ejs', {
+            loggedUser: req.session.loggedUser
+        })
     },
-    processLogin: (req, res) => {
-        let userLogging = User.findByEmail(req.body.email)
-        console.log(userLogging.password);
-       if (userLogging){
-          if (bcryptjs.compareSync(req.body.password, userLogging.password)){
-              req.session.loggedUser = userLogging;
-              if (req.body.rememberUser){
-                res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60})
+    processLogin: async (req, res) => {
+        let userLogging = await User.findOne({
+            where: {
+                email: req.body.email
             }
-             return  res.redirect('/user/profile')
-          } return res.send('las credenciales son invalidas')
+        });
+        if (userLogging) {
+            if (bcryptjs.compareSync(req.body.password, userLogging.password)) {
+                req.session.loggedUser = userLogging;
+                if (req.body.rememberUser) {
+                    res.cookie('userEmail', req.body.email, {
+                        maxAge: (1000 * 60) * 60
+                    })
+                }
+                return res.redirect('/user/profile')
+            }
+            let loginError = 'Las credenciales son invalidas'
+            return res.render('./users/login', {
+                loginError: loginError
+            })
 
-       } return res.send('el email no existe')
-        
+        }
+        return res.send('el email no existe')
     },
     profile: (req, res) => {
         // console.log(req.cookies.userEmail);
@@ -74,7 +92,7 @@ const controller = {
     },
     logout: (req, res) => {
         res.clearCookie('userEmail');
-        req.session.destroy;
+        req.session.destroy();
         return res.redirect('/')
     }
 }

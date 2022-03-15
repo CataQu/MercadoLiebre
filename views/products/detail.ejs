@@ -12,20 +12,37 @@
         <section class="product-section">
             <article class="product-article">
                 <div class="product-image">
-                    <img src=<%= oneProduct.img %> alt="Product">
+                    <img src="/img/<%= oneProduct.image %>" alt="Product">
                 </div>
                 <div class="product-detail-total">
                     <div class="product-detail">
                         <h2 class="title-product">
-                            <%= oneProduct.name%> 
-                            <span><a href="/delete">delete</p></span></h2>
-                            
+                            <%= oneProduct.title%> </h2>
+                        <a href="/products/edit/<%= oneProduct.productId %> "><i class="fas fa-pencil-alt"></i></a>
+                        <form action="/products/<%= oneProduct.productId %>?_method=delete" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+
                         <p class="product-price">
                             <%= oneProduct.price %> </p>
 
                     </div>
                     <div class="description-product">
                         <p><%= oneProduct.description %> </p>
+                    </div>
+                    <div class="description-product">
+                        <% if (oneProduct.categories) { %>
+                            <p>Categoria: <%= oneProduct.categories.name %> </p>
+                         
+                        <% } %>
+                        
+                    </div>
+                    <div class="description-product">
+                        <% if (oneProduct.brands) { %>
+                            <p>Marca: <%= oneProduct.brands.brand %> </p>
+                         
+                        <% } %>
+                        
                     </div>
                     <input type="submit" value="Add to Cart" class="add-to-cart">
                 </div>

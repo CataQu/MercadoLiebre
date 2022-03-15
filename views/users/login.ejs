@@ -9,6 +9,9 @@
     <%- include('../partials/header') %>
     <!-- Registro -->
     <form action="/user/login" method="post" class="form">
+        <% if (locals.loginError) { %>
+            <%= locals.loginError %> 
+        <% } %>
         <div class="formulario">
             <!-- <label for="user">Nombre de usuario</label> -->
             <input type="text" name="email" class="form-fields" id="user"  placeholder="Ingresá tu email" required>

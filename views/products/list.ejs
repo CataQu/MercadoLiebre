@@ -7,7 +7,28 @@
 <body>
     <!-- header -->
     <%- include('../partials/header') %>
-        <h1>ESTE ES EL LIST</h1>
+<main class="main-main">
+        <section class="section">
+            <% for (let i = 0; i < product.length; i++){ %> 
+                <article class="articulos">
+                    <a href="/products/detail/<%=product[i].productId%>">
+                    <div class="img-art">
+                        <img src="/img/<%= product[i].image %>"" name=<%= product[i].title %>>
+                    </div>
+                    <div class="cuerpo-articulo">
+                        <p class="name"><%= product[i].title %> </p>
+                        <div class="price-discount">
+                            <p class="price"><%= product[i].price %> </p>
+                            <p class='discount-description'><%= product[i].discount %></p>
+                            <div class="shipping"><i class="fas fa-truck"></i>
+                            </div>
+                        </div>
+                        <h5 class='description'> <%= product[i].description %></h5>
+                    </div></a>
+                </article>
+                <% } %> 
+        </section> 
+        </main>
     <!-- footer -->
 <%- include('../partials/footer') %>
 </body>

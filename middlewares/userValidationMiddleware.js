@@ -1,8 +1,8 @@
 const { body } = require('express-validator');
 const path = require('path');
 const validations = [
-        body('name').notEmpty().withMessage('Debes ingresar tu nombre completo'),
-        body('user').notEmpty().withMessage('Debes ingresar un nombre de usuario'),
+        body('firstName').notEmpty().withMessage('Debes ingresar tu nombre completo'),
+        body('lastName').notEmpty().withMessage('Debes ingresar un nombre de usuario'),
         // body('dob').notEmpty().withMessage('Debes ingresar tu fecha de nacimiento'),
         // body('address').notEmpty().withMessage('Debes ingresar tu domicilio real'),
         body('email').notEmpty().withMessage('Debes ingresar un correo electronico').bail()

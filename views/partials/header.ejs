@@ -16,13 +16,16 @@
         <nav class="main-navbar">
             <ul class="navbar-left">
                 <li><a href="/products/list">Listado</a></li>
-                <li><a href="/products/create">Nuevo producto</a></li>
-                <li><a href="#">Vender</a></li>
+                <li><a href="<% if (locals.loggedUser) { %>
+                 <%= "/products/create" %> 
+                 <% } else { %>
+                    <%= "/user/login" %> 
+                <% } %>">Vender</a></li>
                 <li><a href="#">Ayuda</a></li>
             </ul>
             <ul class="navbar-right">
                 <% if (locals.loggedUser) { %>
-                    <li><a href="/user/profile">Bienvenido usuario: <%= locals.loggedUser?.name ? loggedUser.name : 'invitado' %> </a> </li>
+                    <li><a href="/user/profile">Bienvenido usuario: <%= locals.loggedUser?.firstName ? loggedUser.firstName : 'invitado' %> </a> </li>
                     <% } else { %>
                         <li><a href="/user/register">Crea tu cuenta </a><i class="far fa-id-card"></i></li>
                         <li><a href="/user/login">Ingresá </a><i class="fas fa-sign-in-alt"></i></li>

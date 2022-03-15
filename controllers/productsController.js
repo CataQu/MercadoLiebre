@@ -1,76 +1,122 @@
 const path = require('path');
 const fs = require('fs');
+const {
+    Product,
+    Brand,
+    Category
+} = require('../database/models');
 
 const productsFilePath = path.resolve(__dirname, '../data/products.json');
 const productsArray = JSON.parse(fs.readFileSync(productsFilePath, 'utf8'))
 
 const controller = {
-    list: function (req, res) {
-        // res.send('este es el list')
-        res.render('products/list', {
-            productsArray: productsArray,
-            loggedUser: req.session.loggedUser})
-    },
-    detail: function (req, res) {
-        const id = Number(req.params.id);
-        const oneProduct = productsArray.find(oneProduct => oneProduct.id === id);
-        res.render('products/detail', { 
-            id: id,
-            oneProduct: oneProduct,
-            loggedUser: req.session.loggedUser
+    create: async function (req, res) {
+        const brands = await Brand.findAll();
+        const categories = await Category.findAll();
+        res.render('products/create', {
+            brands,
+            categories
         })
     },
-    create: function (req, res) {
-        res.render('products/create')
-    },
-    post: function (req, res) {
-        var generateID = () => {
-            return 1
+    post: async function (req, res) {
+        let productToCreate = {
+            ...req.body,
+            image: req.file.filename,
+            brandId: req.body.brands,
+            categoryId: req.body.categories
         }
-        	if(productsArray.length >= 1){
-		generateID = () => {
-			// 1. Obtenemos el último producto almacenado en la DB
-			const lastProduct =  productsArray[productsArray.length - 1];
-			// 2. Obtenemos el ID de ese último producto
-			const lastID = lastProduct.id;
-			// 3. Retornamos ese último ID incrementado en 1
-			return lastID + 1;
-		}
-    } else {
-        generateID = () => {
-            return 1
-        }
-    };
-        productsArray.push({
-            id: generateID(),
-            name: req.body.name,
-            img: 'img/' + req.file.filename,
-            description: req.body.description,
-            discount: req.body.discount,
-            price: req.body.price
-        });
-        fs.writeFileSync(productsFilePath, JSON.stringify(productsArray, null, ' '));
+        try {
+            let productCreated = await Product.create(productToCreate);
+            //    productCreated.addCategories(req.body.categories)
+            //    productCreated.addBrands(req.body.brands)
 
-        return res.redirect('products/list')
+            return res.redirect('products/list')
+
+        } catch (error) {
+            console.log(error)
+        }
     },
-    edit: function (req, res) {
-        const id = Number(req.params.id);
-        const oneProduct = productsArray.find(oneProduct => oneProduct.id === id);
-        res.render('products/edit', { 
-            id: id,
-            oneProduct: oneProduct,
-            loggedUser: req.session.loggedUser
+    list: async (req, res) => {
+        try {
+            const brands = await Brand.findAll();
+            const categories = await Category.findAll();
+            const product = await Product.findAll({
+                include: ["brands", "categories"]
+            })
+            return res.render('products/list', {
+                loggedUser: req.session.loggedUser,
+                product,
+                brands,
+                categories
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    detail: async function (req, res) {
+        try {
+            const id = Number(req.params.id);
+            const oneProduct = await Product.findByPk(id, {
+                include: ["brands", "categories"]
+            });
+            res.render('products/detail', {
+                id: id,
+                oneProduct: oneProduct,
+                loggedUser: req.session.loggedUser
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    edit: async function (req, res) {
+        try {
+            const id = Number(req.params.id);
+            const brands = await Brand.findAll();
+            const categories = await Category.findAll();
+            const oneProduct = await Product.findOne({
+                where: {
+                    productId: id
+                }
+            });
+            res.render('products/edit', {
+                categories,
+                brands,
+                id: id,
+                oneProduct: oneProduct,
+                loggedUser: req.session.loggedUser
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    update: async function (req, res) {
+        try {
+            await Product.update({
+                ...req.body,
+                image: req.file.filename,
+                brandId: req.body.brands,
+                categoryId: req.body.categories
+            }, {
+                where: {
+                    productId: req.params.id
+                }
+            });
+
+            return res.redirect('/products/list')
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    delete: async function (req, res) {
+        const productId = req.params.id;
+        const productToDelete = await Product.destroy({
+            where: {
+                productId: productId
+            }
         })
-    },
-    put: function (req, res) {
-        res.redirect('products/list')
-    },
-    delete: function (req, res) {
-        const id = Number(req.params.id);
-        const filteredProducts = productsArray.filter(oneProduct => oneProduct.id !== id);
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(filteredProducts, null, ' '));
-        res.redirect('products/list')
+        return res.redirect('/products/list')
     }
 }
 

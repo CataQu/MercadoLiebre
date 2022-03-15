@@ -7,16 +7,16 @@ const upload = require('../middlewares/productMulterMiddleware')
 
 router.get('/list', controller.list);
 
-router.get('/detail/:id?', controller.detail);
 
 router.get('/create', controller.create);
-router.post('/', upload.single('img'), controller.post);
+router.post('/', upload.single('image'), controller.post);
 
 router.get('/edit/:id', controller.edit);
-router.put('/edit/:id', controller.put);
+router.put('/edit/:id', upload.single('image'), controller.update);
 
-router.delete('/detail/:id?', controller.delete);
+router.get('/detail/:id?', controller.detail);
 
+router.delete('/:id', controller.delete);
 
 
 module.exports = router;
